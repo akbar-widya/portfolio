@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-bg: #FAFAFA;
+  --color-fg: #0A0A0A;
+  --color-muted: #737373;
+  --color-line: #E5E5E5;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+
+}
+
+::selection {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+}
+
+/* Gradient mask for vertical carousel */
+.carousel-mask {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+/* Utility for bleed typography (text exceeding viewport bounds) */
+.bleed-text {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
