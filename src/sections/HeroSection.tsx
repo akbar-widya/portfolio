@@ -2,6 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { VerticalCarousel } from "@/components/VerticalCarousel";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const CAROUSEL_WORDS = [
   "React Specialist",
@@ -61,27 +62,29 @@ export function HeroSection() {
       className="relative min-h-[100dvh] flex flex-col justify-center pt-32 pb-16 overflow-visible"
     >
       {/* Stamp label */}
-      <div
-        ref={stampRef}
-        className="mb-6 md:mb-8 ml-[8vw] md:ml-[10vw]"
-      >
-        <div className="flex items-center gap-3">
-          <span className="text-[11px] uppercase tracking-[0.3em] text-muted font-normal leading-none">
-            Specializing in
-          </span>
-          <span className="w-8 h-[1px] bg-muted" />
+      <ScrollReveal delay={100} y={20}>
+        <div
+          ref={stampRef}
+          className="mb-6 md:mb-8 ml-[8vw] md:ml-[10vw]"
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] uppercase tracking-[0.3em] text-muted font-normal leading-none">
+              Specializing in
+            </span>
+            <span className="w-8 h-[1px] bg-muted" />
+          </div>
+          <div className="mt-2">
+            <VerticalCarousel
+              words={CAROUSEL_WORDS}
+              speed={8}
+              className="text-[11px] uppercase tracking-[0.2em] text-muted"
+            />
+          </div>
         </div>
-        <div className="mt-2">
-          <VerticalCarousel
-            words={CAROUSEL_WORDS}
-            speed={8}
-            className="text-[11px] uppercase tracking-[0.2em] text-muted"
-          />
-        </div>
-      </div>
+      </ScrollReveal>
 
       {/* Bleeding monolith */}
-      <div className="overflow-visible">
+      <div className="overflow-visible pl-4 md:pl-6">
         <h1
           ref={titleRef}
           className="font-bold text-fg leading-[0.82] tracking-[-0.04em] select-none bleed-text will-change-transform"
@@ -96,7 +99,7 @@ export function HeroSection() {
         </h1>
       </div>
 
-      {/* Location — bottom right */}
+      {/* Location - bottom right */}
       <div className="absolute bottom-8 right-6 md:right-12 lg:right-20 text-[11px] uppercase tracking-[0.25em] text-muted">
         Purwokerto, Indonesia
       </div>

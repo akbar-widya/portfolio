@@ -1,6 +1,7 @@
 import { useRef, useState, useMemo } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 interface Project {
   id: number;
@@ -81,7 +82,7 @@ function ProjectEntry({ project, index }: { project: Project; index: number }) {
       ref={sectionRef}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative min-h-[80dvh] md:min-h-[80dvh] border-t border-line overflow-visible"
+      className="relative min-h-0 md:min-h-[80dvh] border-t border-line overflow-visible"
     >
       {/* ═══ DESKTOP (floating layout) ═══ */}
       <div className="hidden md:block absolute inset-0">
@@ -141,37 +142,47 @@ function ProjectEntry({ project, index }: { project: Project; index: number }) {
 
       {/* ═══ MOBILE (conventional stack) ═══ */}
       <div className="block md:hidden py-12 px-0 space-y-5">
-        <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
-          0{index + 1}
-        </span>
-
-        <a href={project.link} target="_blank" rel="noopener noreferrer" className="block group">
-          <h3 className="text-5xl font-bold leading-[0.9] tracking-[-0.03em] text-fg transition-all duration-300 group-hover:translate-x-2">
-            {project.title}
-          </h3>
-        </a>
-
-        <p className="text-xl md:text-2xl font-light leading-relaxed text-muted">
-          {project.description}
-        </p>
-
-        <div className="pt-2">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
-            {project.tech}
+        <ScrollReveal delay={0} y={20}>
+          <span className="text-[11px] uppercase tracking-[0.2em] text-muted block">
+            0{index + 1}
           </span>
-        </div>
+        </ScrollReveal>
 
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors mt-2"
-        >
-          Kunjungi
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M2 6h8M10 6l-3-3M10 6l-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
+        <ScrollReveal delay={60} y={28}>
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className="block group">
+            <h3 className="text-5xl font-bold leading-[0.9] tracking-[-0.03em] text-fg transition-all duration-300 group-hover:translate-x-2">
+              {project.title}
+            </h3>
+          </a>
+        </ScrollReveal>
+
+        <ScrollReveal delay={120} y={24}>
+          <p className="text-xl md:text-2xl font-light leading-relaxed text-muted">
+            {project.description}
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={180} y={20}>
+          <div className="pt-2">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
+              {project.tech}
+            </span>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={240} y={16}>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors mt-2"
+          >
+            Kunjungi
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M10 6l-3-3M10 6l-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -181,16 +192,20 @@ export function ProjectsSection() {
   return (
     <section className="py-32 md:py-40 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1400px] mx-auto mb-8 md:mb-12">
-        <span className="text-[11px] uppercase tracking-[0.25em] text-muted block mb-2">
-          Pekerjaan Terpilih
-        </span>
-        <h2 className="text-[clamp(1.5rem,4vw,5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-fg">
-          Studi Kasus
-        </h2>
+        <ScrollReveal delay={0} y={20}>
+          <span className="text-[11px] uppercase tracking-[0.25em] text-muted block mb-2">
+            Pekerjaan Terpilih
+          </span>
+        </ScrollReveal>
+        <ScrollReveal delay={80} y={28}>
+          <h2 className="text-[clamp(1.5rem,4vw,5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-fg">
+            Studi Kasus
+          </h2>
+        </ScrollReveal>
       </div>
 
       {PROJECTS.map((project, index) => (
-        <div key={project.id} className="min-h-[100dvh]">
+        <div key={project.id}>
           <ProjectEntry project={project} index={index} />
         </div>
       ))}

@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { AnimatedText } from "@/components/AnimatedText";
 import { MagneticButton } from "@/components/MagneticButton";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const CONTACTS = [
   {
@@ -74,48 +75,53 @@ export function ContactSection() {
       className="relative min-h-[100dvh] py-32 md:py-40 overflow-visible"
     >
       {/* Rotated CTA */}
-      <div ref={ctaRef} className="-rotate-[1.2deg] mx-0 px-6 md:px-20">
-        <AnimatedText
-          text="Memulai Percakapan"
-          as="h2"
-          className="text-[clamp(3rem,10vw,14rem)] font-bold leading-[0.85] tracking-[-0.04em] text-fg w-full"
-          stagger={0.02}
-        />
-      </div>
+      <ScrollReveal delay={0} y={30}>
+        <div ref={ctaRef} className="-rotate-[1.2deg] mx-0 px-6 md:px-20">
+          <AnimatedText
+            text="Memulai Percakapan"
+            as="h2"
+            className="text-[clamp(3rem,10vw,14rem)] font-bold leading-[0.85] tracking-[-0.04em] text-fg w-full"
+            stagger={0.02}
+          />
+        </div>
+      </ScrollReveal>
 
-      {/* Links — scattered on desktop, stacked on mobile */}
+      {/* Links - scattered on desktop, stacked on mobile */}
       <div
         ref={linksRef}
         className="relative mt-12 md:mt-16 px-6 md:px-0 md:min-h-[50vh] space-y-8 md:space-y-0"
       >
-        {CONTACTS.map((contact) => (
-          <a
-            key={contact.label}
-            href={contact.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-item block md:absolute group"
-            style={{ left: contact.x, top: contact.y }}
-          >
-            <span className="block text-[11px] uppercase tracking-[0.25em] text-muted mb-1">
-              {contact.label}
-            </span>
-            <span className="block text-xl md:text-2xl font-light text-fg transition-transform duration-300 group-hover:translate-x-2">
-              {contact.text}
-            </span>
-          </a>
+        {CONTACTS.map((contact, i) => (
+          <ScrollReveal key={contact.label} delay={i * 80} y={24} className="block md:contents">
+            <a
+              href={contact.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-item block md:absolute group"
+              style={{ left: contact.x, top: contact.y }}
+            >
+              <span className="block text-[11px] uppercase tracking-[0.25em] text-muted mb-1">
+                {contact.label}
+              </span>
+              <span className="block text-xl md:text-2xl font-light text-fg transition-transform duration-300 group-hover:translate-x-2">
+                {contact.text}
+              </span>
+            </a>
+          </ScrollReveal>
         ))}
 
-        <div className="contact-item md:absolute" style={{ left: "20%", top: "70%" }}>
-          <MagneticButton
-            href="/cv-akbar.pdf"
-            download
-            variant="solid"
-            className="text-lg font-light tracking-tight"
-          >
-            Unduh CV
-          </MagneticButton>
-        </div>
+        <ScrollReveal delay={240} y={24} className="block md:contents">
+          <div className="contact-item md:absolute" style={{ left: "20%", top: "70%" }}>
+            <MagneticButton
+              href="/cv-akbar.pdf"
+              download
+              variant="solid"
+              className="text-lg font-light tracking-tight"
+            >
+              Unduh CV
+            </MagneticButton>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Footer */}
