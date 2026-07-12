@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Fullstack Developer",
     link: "https://tourvisto-dashboard.vercel.app/",
-    image: "/projects/tourvisto.png",
+    image: "/projects/tourvisto.jpg",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Frontend Developer",
     link: "https://visual-thinkboard.vercel.app/",
-    image: "/projects/thinkboard.png",
+    image: "/projects/thinkboard.jpg",
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Frontend Developer",
     link: "https://movie-finder-akbarw.vercel.app/",
-    image: "/projects/infofilm.png",
+    image: "/projects/infofilm.jpg",
   },
 ];
 
@@ -81,15 +81,8 @@ function ProjectRow({
   return (
     <div ref={rowRef} className="border-t border-line">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 py-8 lg:py-12 items-start">
-        {/* Number */}
-        <div className="hidden lg:block lg:col-span-1">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
-            0{index + 1}
-          </span>
-        </div>
-
         {/* Image */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-4 lg:col-start-1">
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             <div className="aspect-[4/3] rounded-xl overflow-hidden bg-line">
               <img
