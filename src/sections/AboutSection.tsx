@@ -2,23 +2,21 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { AnimatedText } from "@/components/AnimatedText";
-import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!textRef.current) return;
-      const paras = textRef.current.querySelectorAll(".reveal-text");
+      if (!sectionRef.current) return;
+      const els = sectionRef.current.querySelectorAll(".swiss-reveal");
 
-      gsap.from(paras, {
-        yPercent: 30,
+      gsap.from(els, {
+        yPercent: 20,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out",
-        stagger: 0.15,
+        stagger: 0.08,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
@@ -31,55 +29,50 @@ export function AboutSection() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center py-32 md:py-40 px-6 md:px-12 lg:px-20"
+      className="py-16 md:py-40 border-t border-line"
     >
-      <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-        <div className="lg:col-span-4">
-          <ScrollReveal delay={0} y={24}>
-            <AnimatedText
-              text="Tentang"
-              as="h2"
-              className="text-6xl md:text-7xl lg:text-[8vw] font-bold leading-[0.9] tracking-[-0.03em] text-fg"
-              stagger={0.04}
-            />
-          </ScrollReveal>
-          <ScrollReveal delay={100} y={16}>
-            <div className="mt-6 w-16 h-[1px] bg-muted" />
-          </ScrollReveal>
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+        <div className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
+          <AnimatedText
+            text="Tentang"
+            as="h2"
+            className="text-[clamp(1.5rem,4vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg"
+            stagger={0.04}
+          />
+          <div className="mt-6 w-16 h-[1px] bg-muted" />
         </div>
 
-        <div ref={textRef} className="lg:col-span-7 lg:col-start-6 space-y-8 md:space-y-10">
-          <ScrollReveal delay={0} y={30}>
-            <p className="reveal-text text-2xl md:text-3xl lg:text-4xl font-light leading-[1.4] text-fg tracking-tight">
-              Saya percaya bahwa setiap baris kode adalah sebuah keputusan desain.
-              Teknologi, pada hakikatnya, bukan sekadar fungsionalitas, tetapi juga
-              estetika yang berbicara kepada penggunanya.
-            </p>
-          </ScrollReveal>
+        <div className="lg:col-span-3 lg:border-l lg:border-line lg:pl-8">
+          <p className="swiss-reveal text-base md:text-lg font-semibold leading-[1.5] text-fg">
+            Saya percaya bahwa setiap baris kode adalah sebuah keputusan desain.
+            Teknologi, pada hakikatnya, bukan sekadar fungsionalitas, tetapi juga
+            estetika yang berbicara kepada penggunanya.
+          </p>
+        </div>
 
-          <ScrollReveal delay={80} y={28}>
-            <p className="reveal-text text-base md:text-lg font-light leading-[1.7] text-muted">
-              Berawal dari bangku SMK Telkom Purwokerto di jurusan Rekayasa
-              Perangkat Lunak, saya membentuk fondasi teknis yang kokoh.
-              Pengalaman magang sebagai Web Developer di Ishpot Coffee memberikan
-              saya wawasan nyata dalam membangun solusi digital yang tidak hanya
-              berjalan, tetapi juga menyentuh.
-            </p>
-          </ScrollReveal>
+        <div className="lg:col-span-3 lg:border-l lg:border-line lg:pl-8">
+          <p className="swiss-reveal text-sm md:text-base font-light leading-[1.7] text-muted">
+            Berawal dari bangku SMK Telkom Purwokerto di jurusan Rekayasa
+            Perangkat Lunak, saya membentuk fondasi teknis yang kokoh.
+            Pengalaman magang sebagai Web Developer di Ishpot Coffee memberikan
+            saya wawasan nyata dalam membangun solusi digital yang tidak hanya
+            berjalan, tetapi juga menyentuh.
+          </p>
+        </div>
 
-          <ScrollReveal delay={160} y={28}>
-            <p className="reveal-text text-base md:text-lg font-light leading-[1.7] text-muted">
-              Saat ini, saya melanjutkan studi di Telkom University Purwokerto,
-              jurusan Bisnis Digital, untuk memperdalam pemahaman tentang
-              bagaimana teknologi berpadu dengan strategi bisnis. Sertifikasi dari
-              Google dalam{" "}
-              <em className="text-fg not-italic">AI for Professionals</em> dan{" "}
-              <em className="text-fg not-italic">Agile Essentials</em> menegaskan
-              komitmen saya untuk terus berkembang di tengah lanskap yang selalu
-              berubah.
-            </p>
-          </ScrollReveal>
+        <div className="lg:col-span-3 lg:border-l lg:border-line lg:pl-8">
+          <p className="swiss-reveal text-sm md:text-base font-light leading-[1.7] text-muted">
+            Saat ini, saya melanjutkan studi di Telkom University Purwokerto,
+            jurusan Bisnis Digital, untuk memperdalam pemahaman tentang
+            bagaimana teknologi berpadu dengan strategi bisnis. Sertifikasi dari
+            Google dalam{" "}
+            <em className="text-fg not-italic">AI for Professionals</em> dan{" "}
+            <em className="text-fg not-italic">Agile Essentials</em> menegaskan
+            komitmen saya untuk terus berkembang di tengah lanskap yang selalu
+            berubah.
+          </p>
         </div>
       </div>
     </section>

@@ -25,33 +25,35 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out px-6 md:px-12 lg:px-20 py-6 md:py-8 flex items-center justify-between",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out py-6 md:py-8",
         scrolled ? "bg-bg/80 backdrop-blur-md" : "bg-transparent"
       )}
     >
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-        className="text-[11px] uppercase tracking-[0.25em] font-normal text-fg hover:text-muted transition-colors duration-300"
-      >
-        Akbar Widya
-      </a>
+      <div className="px-5 md:px-10 lg:px-16 max-w-[1600px] mx-auto flex items-center justify-between">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="text-[11px] uppercase tracking-[0.25em] font-normal text-fg hover:text-muted transition-colors duration-300"
+        >
+          Akbar Widya
+        </a>
 
-      <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-        {NAV_ITEMS.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            onClick={(e) => handleClick(e, item.href)}
-            className="text-[11px] uppercase tracking-[0.2em] font-normal text-muted hover:text-fg transition-colors duration-300"
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
+        <nav className="hidden md:flex items-center gap-8 lg:gap-12">
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => handleClick(e, item.href)}
+              className="text-[11px] uppercase tracking-[0.2em] font-normal text-muted hover:text-fg transition-colors duration-300"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 }

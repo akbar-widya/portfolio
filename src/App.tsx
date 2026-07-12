@@ -10,15 +10,9 @@ function App() {
       <Header />
       <main>
         <HeroSection />
-        <section id="about">
-          <AboutSection />
-        </section>
-        <section id="projects">
-          <ProjectsSection />
-        </section>
-        <section id="contact">
-          <ContactSection />
-        </section>
+        <AboutSection />
+        <ProjectsSection />
+        <ContactSection />
       </main>
     </>
   );
