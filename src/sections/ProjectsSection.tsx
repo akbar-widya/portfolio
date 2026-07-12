@@ -11,6 +11,7 @@ interface Project {
   role: string;
   link: string;
   github?: string;
+  image: string;
 }
 
 const PROJECTS: Project[] = [
@@ -23,6 +24,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Fullstack Developer",
     link: "https://tourvisto-dashboard.vercel.app/",
+    image: "/studi-kasus-1.jpg",
   },
   {
     id: 2,
@@ -33,6 +35,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Frontend Developer",
     link: "https://visual-thinkboard.vercel.app/",
+    image: "/studi-kasus-2.jpg",
   },
   {
     id: 3,
@@ -43,6 +46,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Frontend Developer",
     link: "https://movie-finder-akbarw.vercel.app/",
+    image: "/studi-kasus-3.jpg",
   },
 ];
 
@@ -76,66 +80,81 @@ function ProjectRow({
 
   return (
     <div ref={rowRef} className="border-t border-line">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 py-8 lg:py-12">
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold leading-[0.9] tracking-[-0.03em] text-fg transition-transform duration-300 hover:translate-x-2">
-            {project.title}
-          </h3>
-          <p className="mt-4 text-sm md:text-base font-light leading-[1.7] text-muted">
-            {project.description}
-          </p>
-        </div>
+      <div className="py-8 lg:py-12">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block overflow-hidden rounded-lg mb-6 lg:mb-8"
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto object-cover transition-transform duration-500 hover:scale-[1.02]"
+          />
+        </a>
 
-        <div className="lg:border-l lg:border-line lg:pl-8">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-3">
-            Teknologi
-          </span>
-          <div className="space-y-1">
-            {project.tech.map((t) => (
-              <p key={t} className="text-sm text-fg">
-                {t}
-              </p>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold leading-[0.9] tracking-[-0.03em] text-fg transition-transform duration-300 hover:translate-x-2">
+              {project.title}
+            </h3>
+            <p className="mt-4 text-sm md:text-base font-light leading-[1.7] text-muted">
+              {project.description}
+            </p>
           </div>
-        </div>
 
-        <div className="lg:border-l lg:border-line lg:pl-8">
-          <div className="space-y-6">
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                Tahun
-              </span>
-              <p className="text-sm text-fg">{project.year}</p>
+          <div className="lg:border-l lg:border-line lg:pl-8">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-3">
+              Teknologi
+            </span>
+            <div className="space-y-1">
+              {project.tech.map((t) => (
+                <p key={t} className="text-sm text-fg">
+                  {t}
+                </p>
+              ))}
             </div>
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                Peran
-              </span>
-              <p className="text-sm text-fg">{project.role}</p>
-            </div>
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                Link
-              </span>
-              <div className="space-y-1">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors block"
-                >
-                  Live Demo ↗
-                </a>
-                {project.github && (
+          </div>
+
+          <div className="lg:border-l lg:border-line lg:pl-8">
+            <div className="space-y-6">
+              <div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
+                  Tahun
+                </span>
+                <p className="text-sm text-fg">{project.year}</p>
+              </div>
+              <div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
+                  Peran
+                </span>
+                <p className="text-sm text-fg">{project.role}</p>
+              </div>
+              <div>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
+                  Link
+                </span>
+                <div className="space-y-1">
                   <a
-                    href={project.github}
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors block"
                   >
-                    GitHub ↗
+                    Live Demo ↗
                   </a>
-                )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors block"
+                    >
+                      GitHub ↗
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
