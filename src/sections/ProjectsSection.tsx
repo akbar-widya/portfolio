@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Fullstack Developer",
     link: "https://tourvisto-dashboard.vercel.app/",
-    image: "/studi-kasus-1.jpg",
+    image: "/projects/tourvisto.png",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Frontend Developer",
     link: "https://visual-thinkboard.vercel.app/",
-    image: "/studi-kasus-2.jpg",
+    image: "/projects/thinkboard.png",
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     role: "Frontend Developer",
     link: "https://movie-finder-akbarw.vercel.app/",
-    image: "/studi-kasus-3.jpg",
+    image: "/projects/infofilm.png",
   },
 ];
 
@@ -80,82 +80,78 @@ function ProjectRow({
 
   return (
     <div ref={rowRef} className="border-t border-line">
-      <div className="py-8 lg:py-12">
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block overflow-hidden rounded-lg mb-6 lg:mb-8"
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-auto object-cover transition-transform duration-500 hover:scale-[1.02]"
-          />
-        </a>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 py-8 lg:py-12 items-start">
+        {/* Number */}
+        <div className="hidden lg:block lg:col-span-1">
+          <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
+            0{index + 1}
+          </span>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold leading-[0.9] tracking-[-0.03em] text-fg transition-transform duration-300 hover:translate-x-2">
-              {project.title}
-            </h3>
-            <p className="mt-4 text-sm md:text-base font-light leading-[1.7] text-muted">
-              {project.description}
-            </p>
-          </div>
-
-          <div className="lg:border-l lg:border-line lg:pl-8">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-3">
-              Teknologi
-            </span>
-            <div className="space-y-1">
-              {project.tech.map((t) => (
-                <p key={t} className="text-sm text-fg">
-                  {t}
-                </p>
-              ))}
+        {/* Image */}
+        <div className="lg:col-span-4">
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-line">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
             </div>
-          </div>
+          </a>
+        </div>
 
-          <div className="lg:border-l lg:border-line lg:pl-8">
-            <div className="space-y-6">
-              <div>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                  Tahun
-                </span>
-                <p className="text-sm text-fg">{project.year}</p>
-              </div>
-              <div>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                  Peran
-                </span>
-                <p className="text-sm text-fg">{project.role}</p>
-              </div>
-              <div>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                  Link
-                </span>
-                <div className="space-y-1">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors block"
-                  >
-                    Live Demo ↗
-                  </a>
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors block"
-                    >
-                      GitHub ↗
-                    </a>
-                  )}
-                </div>
-              </div>
+        {/* Name + Description */}
+        <div className="lg:col-span-3">
+          <h3 className="text-xl md:text-2xl font-bold leading-[0.9] tracking-[-0.03em] text-fg">
+            {project.title}
+          </h3>
+          <p className="mt-3 text-sm font-light leading-[1.7] text-muted">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Tech */}
+        <div className="lg:col-span-2 lg:border-l lg:border-line lg:pl-4">
+          <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-3">
+            Teknologi
+          </span>
+          <div className="space-y-1">
+            {project.tech.map((t) => (
+              <p key={t} className="text-sm text-fg">
+                {t}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Metadata */}
+        <div className="lg:col-span-2 lg:border-l lg:border-line lg:pl-4">
+          <div className="space-y-5">
+            <div>
+              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
+                Tahun
+              </span>
+              <p className="text-sm text-fg">{project.year}</p>
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
+                Peran
+              </span>
+              <p className="text-sm text-fg">{project.role}</p>
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
+                Link
+              </span>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors"
+              >
+                Live Demo ↗
+              </a>
             </div>
           </div>
         </div>
@@ -200,6 +196,9 @@ export function ProjectsSection() {
             Studi Kasus
           </h2>
           <div className="section-header-reveal mt-6 w-16 h-[1px] bg-muted" />
+          <p className="section-header-reveal mt-6 text-sm font-light leading-[1.7] text-muted max-w-[240px]">
+            Beberapa proyek yang saya kerjakan, mulai dari ide, perancangan, hingga hasil akhir.
+          </p>
         </div>
 
         <div className="lg:col-span-9">
