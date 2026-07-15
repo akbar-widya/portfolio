@@ -66,11 +66,34 @@ export function AboutSection() {
           <p className="swiss-reveal text-sm md:text-base font-light leading-[1.7] text-muted">
             Saat ini, saya melanjutkan studi di Telkom University Purwokerto,
             jurusan Bisnis Digital, untuk memperdalam pemahaman tentang
-            bagaimana teknologi berpadu dengan strategi bisnis. Sertifikasi dari
-            Google dalam{" "}
-            <em className="text-fg not-italic">AI for Professionals</em> dan{" "}
-            <em className="text-fg not-italic">Agile Essentials</em> menegaskan
-            komitmen saya untuk terus berkembang di tengah lanskap yang selalu
+            bagaimana teknologi berpadu dengan strategi bisnis. Sertifikasi{" "}
+            <a
+              href="https://coursera.org/verify/professional-cert/LO4IF4HQ0CIE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-fg underline underline-offset-4 hover:text-muted transition-colors"
+            >
+              Google AI for Professionals ↗
+            </a>
+            ,{" "}
+            <a
+              href="https://coursera.org/verify/specialization/J26O95I8UQQG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-fg underline underline-offset-4 hover:text-muted transition-colors"
+            >
+              Google Agile Essentials ↗
+            </a>
+            , dan{" "}
+            <a
+              href="https://coursera.org/verify/professional-cert/Q9N4SQCJPIOD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-fg underline underline-offset-4 hover:text-muted transition-colors"
+            >
+              Google IT Automation with Python ↗
+            </a>{" "}
+            menegaskan komitmen saya untuk terus berkembang di tengah lanskap yang selalu
             berubah.
           </p>
         </div>
