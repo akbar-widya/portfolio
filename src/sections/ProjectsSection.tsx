@@ -17,6 +17,24 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 1,
+    title: "ForgeFlow WMS",
+    description:
+      "Sistem manajemen gudang (WMS) skala enterprise untuk mengelola pergerakan stok presisi, alokasi pekerjaan, dan analitik data terpusat.",
+    tech: [
+      "React.js",
+      "Vite",
+      "Hono",
+      "Cloudflare D1",
+      "Better Auth",
+      "Recharts",
+    ],
+    year: "2026",
+    role: "Fullstack Developer",
+    link: "https://forgeflow-web.pages.dev",
+    image: "/projects/forgeflow.jpg",
+  },
+  {
+    id: 2,
     title: "TourVisto",
     description:
       "Platform otomasi perjalanan yang merancang itinerary secara cerdas melalui formulir dinamis dan integrasi AI.",
@@ -27,7 +45,7 @@ const PROJECTS: Project[] = [
     image: "/projects/tourvisto.jpg",
   },
   {
-    id: 2,
+    id: 3,
     title: "Visual Thinkboard",
     description:
       "Papan tugas visual yang mengubah kompleksitas manajemen proyek menjadi pengalaman intuitif dan estetis.",
@@ -38,7 +56,7 @@ const PROJECTS: Project[] = [
     image: "/projects/thinkboard.jpg",
   },
   {
-    id: 3,
+    id: 4,
     title: "Info Film",
     description:
       "Mesin pencarian film dengan rekomendasi infografis, menghubungkan penonton dengan cerita yang relevan.",
@@ -50,13 +68,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-function ProjectRow({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
+function ProjectRow({ project, index }: { project: Project; index: number }) {
   const rowRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -75,7 +87,7 @@ function ProjectRow({
         delay: index * 0.08,
       });
     },
-    { scope: rowRef }
+    { scope: rowRef },
   );
 
   return (
@@ -159,7 +171,9 @@ export function ProjectsSection() {
   useGSAP(
     () => {
       if (!sectionRef.current) return;
-      const headerEls = sectionRef.current.querySelectorAll(".section-header-reveal");
+      const headerEls = sectionRef.current.querySelectorAll(
+        ".section-header-reveal",
+      );
 
       gsap.from(headerEls, {
         yPercent: 20,
@@ -174,7 +188,7 @@ export function ProjectsSection() {
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -190,7 +204,8 @@ export function ProjectsSection() {
           </h2>
           <div className="section-header-reveal mt-6 w-16 h-[1px] bg-muted" />
           <p className="section-header-reveal mt-6 text-sm font-light leading-[1.7] text-muted max-w-[240px]">
-            Beberapa proyek yang saya kerjakan, mulai dari ide, perancangan, hingga hasil akhir.
+            Beberapa proyek yang saya kerjakan, mulai dari ide, perancangan,
+            hingga hasil akhir.
           </p>
         </div>
 
