@@ -46,6 +46,17 @@ const PROJECTS: Project[] = [
   },
   {
     id: 3,
+    title: "Asyiah Craft",
+    description:
+      "Katalog digital UMKM kerajinan rajut dengan pemesanan via WhatsApp. Aktif digunakan sebagai website resmi operasional Asyiah Craft",
+    tech: ["React.js", "Tailwind CSS", "Vite"],
+    year: "2025",
+    role: "Frontend Developer",
+    link: "https://asyiahcraft.vercel.app/",
+    image: "/projects/asyiahcraft.jpg",
+  },
+  {
+    id: 4,
     title: "Visual Thinkboard",
     description:
       "Papan tugas visual yang mengubah kompleksitas manajemen proyek menjadi pengalaman intuitif dan estetis.",
@@ -56,7 +67,7 @@ const PROJECTS: Project[] = [
     image: "/projects/thinkboard.jpg",
   },
   {
-    id: 4,
+    id: 5,
     title: "Info Film",
     description:
       "Mesin pencarian film dengan rekomendasi infografis, menghubungkan penonton dengan cerita yang relevan.",
