@@ -37,7 +37,7 @@ const PROJECTS: Project[] = [
     id: 2,
     title: "TourVisto",
     description:
-      "Platform otomasi perjalanan yang merancang itinerary secara cerdas melalui formulir dinamis dan integrasi AI.",
+      "Platform otomasi perjalanan yang merancang itinerary secara cerdas melalui formulir dinamis dan integrasi AI. (Catatan: Matikan 3rd-party blocker jika gagal login).",
     tech: ["React.js", "Supabase", "React Router v7", "ShadCn", "Google OAuth"],
     year: "2025",
     role: "Fullstack Developer",
