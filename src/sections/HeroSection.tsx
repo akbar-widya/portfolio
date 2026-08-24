@@ -2,7 +2,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { AnimatedText } from "@/components/AnimatedText";
-import { MagneticButton } from "@/components/MagneticButton";
 import { prefersReducedMotion } from "@/lib/prefers-reduced-motion";
 
 export function HeroSection() {
@@ -14,14 +13,15 @@ export function HeroSection() {
       if (prefersReducedMotion()) return;
       if (!titleRef.current) return;
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        })
         .from(titleRef.current, {
           yPercent: 30,
           opacity: 0,
@@ -37,24 +37,30 @@ export function HeroSection() {
           ease: "none",
         });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100dvh] flex flex-col justify-center pt-32 pb-16 overflow-visible"
+      className="relative min-h-[100dvh] flex flex-col justify-center pt-20 md:pt-28 pb-16 overflow-visible"
     >
-      <div aria-hidden className="hero-wash pointer-events-none absolute inset-0" />
+      <div
+        aria-hidden
+        className="hero-wash pointer-events-none absolute inset-0"
+      />
 
       <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto w-full">
         <div className="mb-6 md:mb-10 flex items-baseline">
           <AnimatedText
-            text="Hai, saya Akbar Widya Pamungkas"
+            text="Hai, saya Akbar Widya"
             as="span"
             className="text-base md:text-xl font-medium tracking-[-0.01em]"
           />
-          <span aria-hidden className="text-base md:text-xl font-medium text-primary">
+          <span
+            aria-hidden
+            className="text-base md:text-xl font-medium text-primary"
+          >
             .
           </span>
         </div>
@@ -72,37 +78,21 @@ export function HeroSection() {
           >
             Frontend
             <br />
-            Developer
-            <span className="text-primary">.</span>
+            <span className="text-primary">Developer.</span>
           </h1>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0">
-        <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            {/* CTA */}
-            <div className="flex items-center gap-6 md:gap-10">
-              <MagneticButton
-                href="#projects"
-                className="text-sm md:text-base font-medium"
-              >
-                Lihat Studi Kasus
-              </MagneticButton>
-              <a
-                href="/cv-akbar.pdf"
-                download
-                className="text-sm md:text-base font-medium text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 decoration-border hover:decoration-foreground"
-              >
-                Unduh CV
-              </a>
-            </div>
-
-            {/* Lokasi */}
-            <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground md:text-right">
-              Purwokerto, Indonesia
-            </div>
-          </div>
+      {/* CTA kanan-atas */}
+      <div className="absolute top-8 md:top-12 left-0 right-0">
+        <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto w-full flex justify-end">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 text-sm md:text-base font-medium text-primary-foreground bg-primary px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 hover:brightness-105"
+          >
+            Hubungi Saya
+            <span aria-hidden>→</span>
+          </a>
         </div>
       </div>
     </section>
