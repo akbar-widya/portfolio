@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { prefersReducedMotion } from "@/lib/prefers-reduced-motion";
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
       if (!sectionRef.current) return;
       const els = sectionRef.current.querySelectorAll(".swiss-reveal");
 

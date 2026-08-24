@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { prefersReducedMotion } from "@/lib/prefers-reduced-motion";
 
 const CONTACTS = [
   {
@@ -25,6 +26,7 @@ export function ContactSection() {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
       if (!sectionRef.current) return;
       const els = sectionRef.current.querySelectorAll(".swiss-reveal");
 
@@ -48,7 +50,7 @@ export function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="pt-16 md:pt-40 pb-8 md:pb-16"
+      className="on-dark bg-background pt-20 md:pt-40 pb-10 md:pb-14"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         
@@ -61,9 +63,12 @@ export function ContactSection() {
               Mari
               <br />
               Berbincang
+              <span className="text-primary">.</span>
             </h2>
             <p className="swiss-reveal text-sm md:text-base font-light leading-[1.6] text-muted-foreground max-w-sm">
-              Punya ide proyek yang ingin diwujudkan, atau sekadar butuh teman diskusi seputar teknologi? Jangan ragu untuk menyapa. Saya selalu terbuka untuk ngobrol santai maupun kolaborasi baru.
+              Punya ide proyek yang ingin diwujudkan, atau sekadar butuh teman
+              diskusi seputar teknologi? Jangan ragu untuk menyapa, saya
+              selalu terbuka untuk obrolan santai maupun kolaborasi serius.
             </p>
           </div>
 
@@ -79,7 +84,7 @@ export function ContactSection() {
                     href={contact.href}
                     target={contact.href.startsWith("http") ? "_blank" : undefined}
                     rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-lg md:text-xl font-medium text-foreground hover:text-muted-foreground transition-colors w-fit underline underline-offset-4 decoration-border hover:decoration-border"
+                    className="text-lg md:text-xl font-medium text-foreground hover:text-primary transition-colors w-fit underline underline-offset-4 decoration-border hover:decoration-primary"
                   >
                     {contact.text}
                   </a>
@@ -88,11 +93,11 @@ export function ContactSection() {
             </div>
 
             {/* Tombol CV menyatu dengan rapi di bawah daftar kontak */}
-            <div className="swiss-reveal pt-6 border-t border-border">
+            <div className="swiss-reveal">
               <a
                 href="/cv-akbar.pdf"
                 download
-                className="inline-flex items-center gap-3 text-sm md:text-base font-medium text-background bg-foreground px-7 py-3.5 rounded-full transition-transform hover:scale-105"
+                className="inline-flex items-center gap-3 text-sm md:text-base font-medium text-primary-foreground bg-primary px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 hover:brightness-105"
               >
                 Unduh CV
                 <span>→</span>

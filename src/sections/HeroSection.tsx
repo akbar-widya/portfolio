@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { AnimatedText } from "@/components/AnimatedText";
 import { MagneticButton } from "@/components/MagneticButton";
+import { prefersReducedMotion } from "@/lib/prefers-reduced-motion";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,6 +11,7 @@ export function HeroSection() {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
       if (!titleRef.current) return;
 
       gsap.timeline({

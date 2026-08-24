@@ -2,6 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
+import { prefersReducedMotion } from "@/lib/prefers-reduced-motion";
 
 interface AnimatedTextProps {
   text: string;
@@ -22,6 +23,7 @@ export function AnimatedText({
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
       const chars = containerRef.current?.querySelectorAll(".char");
       if (!chars || chars.length === 0) return;
 
