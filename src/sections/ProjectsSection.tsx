@@ -158,7 +158,7 @@ export function ProjectsSection() {
       ref={sectionRef}
       className="py-16 md:py-40 border-t border-line"
     >
-      <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         {/* Header Section (Dipindah ke atas untuk memberi ruang maksimal pada grid) */}
         <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
           <h2 className="section-header-reveal text-[clamp(2rem,5vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg">
