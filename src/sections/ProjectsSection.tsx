@@ -156,7 +156,7 @@ export function ProjectsSection() {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-16 md:py-40 border-t border-border"
+      className="py-16 md:py-40"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         {/* Header Section (Dipindah ke atas untuk memberi ruang maksimal pada grid) */}

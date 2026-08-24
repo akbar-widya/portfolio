@@ -48,7 +48,7 @@ export function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="pt-16 md:pt-40 pb-8 md:pb-16 border-t border-border"
+      className="pt-16 md:pt-40 pb-8 md:pb-16"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         

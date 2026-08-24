@@ -30,7 +30,7 @@ export function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="py-16 md:py-40 border-t border-border"
+      className="py-16 md:py-40 bg-surface-alt"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16 flex flex-col items-center">
         {/* Header Section */}
@@ -45,8 +45,11 @@ export function AboutSection() {
           {/* Statement Utama (Filosofi) */}
           <p className="swiss-reveal text-xl md:text-3xl font-medium leading-[1.4] text-foreground">
             Bagi saya, menulis kode bukan sekadar membuat aplikasi yang
-            berfungsi, tetapi tentang menciptakan pengalaman yang nyaman dan
-            bermakna bagi penggunanya.
+            berfungsi, tetapi tentang menciptakan{" "}
+            <span className="text-primary">
+              pengalaman yang nyaman dan bermakna
+            </span>{" "}
+            bagi penggunanya.
           </p>
 
           {/* Paragraf Naratif (Background & Sertifikasi yang digabung) */}
@@ -68,7 +71,7 @@ export function AboutSection() {
                 href="https://coursera.org/verify/professional-cert/LO4IF4HQ0CIE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
+                className="inline-block text-foreground underline underline-offset-4 decoration-primary/40 hover:text-primary hover:decoration-primary transition-colors"
               >
                 Google AI for Professionals ↗
               </a>
@@ -77,7 +80,7 @@ export function AboutSection() {
                 href="https://coursera.org/verify/specialization/J26O95I8UQQG"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
+                className="inline-block text-foreground underline underline-offset-4 decoration-primary/40 hover:text-primary hover:decoration-primary transition-colors"
               >
                 Agile Essentials ↗
               </a>
@@ -86,7 +89,7 @@ export function AboutSection() {
                 href="https://coursera.org/verify/professional-cert/Q9N4SQCJPIOD"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
+                className="inline-block text-foreground underline underline-offset-4 decoration-primary/40 hover:text-primary hover:decoration-primary transition-colors"
               >
                 IT Automation with Python ↗
               </a>
