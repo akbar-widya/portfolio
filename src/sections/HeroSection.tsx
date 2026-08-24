@@ -41,14 +41,16 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative min-h-[100dvh] flex flex-col justify-center pt-32 pb-16 overflow-visible"
     >
-      <div className="px-5 md:px-10 lg:px-16 max-w-[1600px] mx-auto w-full">
+      <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto w-full">
         <div className="overflow-visible">
           <h1
             ref={titleRef}
             className="font-bold text-fg leading-[0.82] tracking-[-0.04em] select-none bleed-text will-change-transform"
             style={{
-              fontSize: "clamp(3.5rem, 16vw, 22rem)",
-              marginLeft: "clamp(-0.5rem, -4vw, -8rem)",
+              // Ukuran disesuaikan agar pas di dalam max-w-7xl tanpa meluber ke kanan
+              fontSize: "clamp(3.5rem, 12vw, 14.5rem)", 
+              // Sedikit tarikan optik agar rata kiri huruf 'F' sejajar presisi dengan padding
+              marginLeft: "-0.05em",
             }}
           >
             Frontend
@@ -59,7 +61,7 @@ export function HeroSection() {
       </div>
 
       <div className="absolute bottom-8 left-0 right-0">
-        <div className="px-5 md:px-10 lg:px-16 max-w-[1600px] mx-auto w-full">
+        <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto w-full">
           <div className="text-[11px] uppercase tracking-[0.25em] text-muted text-right">
             Purwokerto, Indonesia
           </div>

@@ -16,7 +16,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -26,10 +29,10 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out py-6 md:py-8",
-        scrolled ? "bg-bg/80 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-bg/80 backdrop-blur-md" : "bg-transparent",
       )}
     >
-      <div className="px-5 md:px-10 lg:px-16 max-w-[1600px] mx-auto flex items-center justify-between">
+      <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto flex items-center justify-between">
         <a
           href="#"
           onClick={(e) => {
