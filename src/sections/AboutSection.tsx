@@ -30,12 +30,12 @@ export function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="py-16 md:py-40 border-t border-line"
+      className="py-16 md:py-40 border-t border-border"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16 flex flex-col items-center">
         {/* Header Section */}
         <div className="mb-12 md:mb-16 text-center">
-          <h2 className="swiss-reveal text-[clamp(2rem,5vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg">
+          <h2 className="swiss-reveal text-[clamp(2rem,5vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-foreground">
             Mengenal Saya
           </h2>
         </div>
@@ -43,14 +43,14 @@ export function AboutSection() {
         {/* Editorial Content */}
         <div className="max-w-3xl w-full flex flex-col items-center text-center space-y-10 md:space-y-12">
           {/* Statement Utama (Filosofi) */}
-          <p className="swiss-reveal text-xl md:text-3xl font-medium leading-[1.4] text-fg">
+          <p className="swiss-reveal text-xl md:text-3xl font-medium leading-[1.4] text-foreground">
             Bagi saya, menulis kode bukan sekadar membuat aplikasi yang
             berfungsi, tetapi tentang menciptakan pengalaman yang nyaman dan
             bermakna bagi penggunanya.
           </p>
 
           {/* Paragraf Naratif (Background & Sertifikasi yang digabung) */}
-          <div className="space-y-6 text-sm md:text-base font-light leading-[1.8] text-muted max-w-2xl">
+          <div className="space-y-6 text-sm md:text-base font-light leading-[1.8] text-muted-foreground max-w-2xl">
             <p className="swiss-reveal">
               Ketertarikan saya pada dunia perangkat lunak sudah dipupuk sejak
               masa sekolah di SMK Telkom Purwokerto. Ilmu tersebut kemudian saya
@@ -68,7 +68,7 @@ export function AboutSection() {
                 href="https://coursera.org/verify/professional-cert/LO4IF4HQ0CIE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-fg underline underline-offset-4 hover:text-muted transition-colors"
+                className="inline-block text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
               >
                 Google AI for Professionals ↗
               </a>
@@ -77,7 +77,7 @@ export function AboutSection() {
                 href="https://coursera.org/verify/specialization/J26O95I8UQQG"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-fg underline underline-offset-4 hover:text-muted transition-colors"
+                className="inline-block text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
               >
                 Agile Essentials ↗
               </a>
@@ -86,7 +86,7 @@ export function AboutSection() {
                 href="https://coursera.org/verify/professional-cert/Q9N4SQCJPIOD"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-fg underline underline-offset-4 hover:text-muted transition-colors"
+                className="inline-block text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
               >
                 IT Automation with Python ↗
               </a>

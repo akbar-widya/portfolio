@@ -22,7 +22,7 @@ export function VerticalCarousel({
       style={{ height: "1.4em" }}
     >
       <div
-        className="flex flex-col"
+        className="flex flex-col carousel-track"
         style={{
           animation: `scrollVertical ${speed}s linear infinite`,
         }}
@@ -30,7 +30,7 @@ export function VerticalCarousel({
         {doubled.map((word, i) => (
           <span
             key={i}
-            className="block leading-[1.4em] text-muted will-change-transform"
+            className="block leading-[1.4em] text-muted-foreground will-change-transform"
           >
             {word}
           </span>

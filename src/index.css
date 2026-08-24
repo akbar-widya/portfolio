@@ -1,11 +1,44 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens (konvensi Shadcn, OKLCH) ───
+   Netral di-tint halus ke hue emerald (~168°) agar kohesif dengan primary,
+   bukan abu-abu mati. */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --color-bg: #FAFAFA;
-  --color-fg: #0A0A0A;
-  --color-muted: #737373;
-  --color-line: #E5E5E5;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces */
+  --color-background: oklch(1 0 0); /* putih bersih */
+  --color-surface-alt: oklch(0.972 0.008 168); /* off-white tinted, bg alternating */
+  --color-card: oklch(1 0 0);
+  --color-muted: oklch(0.955 0.01 168);
+
+  /* Ink & text */
+  --color-foreground: oklch(0.17 0.015 168);
+  --color-muted-foreground: oklch(0.5 0.02 168);
+
+  /* Primary — deep emerald */
+  --color-primary: oklch(0.48 0.115 168);
+  --color-primary-foreground: oklch(0.985 0.005 168);
+
+  /* Lines & focus */
+  --color-border: oklch(0.92 0.01 168);
+  --color-ring: oklch(0.48 0.115 168);
+}
+
+/* ─── Scoped inversion untuk section gelap ───
+   Menimpa token semantik secara lokal; semua utility Tailwind
+   (bg-background, text-muted-foreground, dst.) ikut ter-invert. */
+.on-dark {
+  --color-background: oklch(0.17 0.018 168);
+  --color-surface-alt: oklch(0.21 0.02 168);
+  --color-card: oklch(0.21 0.02 168);
+  --color-muted: oklch(0.26 0.02 168);
+  --color-foreground: oklch(0.965 0.008 168);
+  --color-muted-foreground: oklch(0.72 0.025 168);
+  --color-primary: oklch(0.8 0.125 166);
+  --color-primary-foreground: oklch(0.19 0.03 166);
+  --color-border: oklch(0.32 0.02 168);
+  --color-ring: oklch(0.8 0.125 166);
 }
 
 html {
@@ -16,14 +49,29 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-fg);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: var(--font-sans);
 }
 
 ::selection {
-  background-color: var(--color-fg);
-  color: var(--color-bg);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* Gradient mask for vertical carousel */
@@ -36,10 +84,6 @@ body {
 .bleed-text {
   white-space: nowrap;
   overflow: visible;
-}
-
-.text-balance {
-  text-wrap: balance;
 }
 
 /* ─── Scroll reveal utilities ─── */
@@ -55,4 +99,21 @@ body {
 .scroll-reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .carousel-track {
+    animation: none !important;
+  }
 }

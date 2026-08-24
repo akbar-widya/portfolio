@@ -16,9 +16,9 @@ export function MagneticButton({
     "group inline-flex items-center gap-3 transition-transform duration-300 ease-out hover:scale-[1.03] will-change-transform";
 
   const variants = {
-    ghost: "text-fg",
+    ghost: "text-foreground",
     solid:
-      "bg-fg text-bg px-8 py-4 rounded-full hover:bg-muted hover:text-fg",
+      "bg-foreground text-background px-8 py-4 rounded-full hover:bg-muted hover:text-foreground",
   };
 
   return (

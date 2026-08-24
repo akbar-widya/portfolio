@@ -45,7 +45,7 @@ export function HeroSection() {
         <div className="overflow-visible">
           <h1
             ref={titleRef}
-            className="font-bold text-fg leading-[0.82] tracking-[-0.04em] select-none bleed-text will-change-transform"
+            className="font-bold text-foreground leading-[0.82] tracking-[-0.04em] select-none bleed-text will-change-transform"
             style={{
               // Ukuran disesuaikan agar pas di dalam max-w-7xl tanpa meluber ke kanan
               fontSize: "clamp(3.5rem, 12vw, 14.5rem)", 
@@ -62,7 +62,7 @@ export function HeroSection() {
 
       <div className="absolute bottom-8 left-0 right-0">
         <div className="px-5 md:px-10 lg:px-16 max-w-7xl mx-auto w-full">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-muted text-right">
+          <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground text-right">
             Purwokerto, Indonesia
           </div>
         </div>

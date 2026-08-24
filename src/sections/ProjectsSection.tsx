@@ -94,7 +94,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         rel="noopener noreferrer"
         className="block mb-6"
       >
-        <div className="aspect-[4/3] rounded-xl overflow-hidden bg-line">
+        <div className="aspect-[4/3] rounded-xl overflow-hidden bg-muted">
           <img
             src={project.image}
             alt={project.title}
@@ -105,21 +105,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Name + Link */}
       <div className="flex justify-between items-start gap-4 mb-3">
-        <h3 className="text-xl md:text-2xl font-bold leading-[0.9] tracking-[-0.03em] text-fg">
+        <h3 className="text-xl md:text-2xl font-bold leading-[0.9] tracking-[-0.03em] text-foreground">
           {project.title}
         </h3>
         <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 text-sm font-medium text-fg underline underline-offset-4 hover:text-muted transition-colors mt-1 md:mt-0"
+          className="shrink-0 text-sm font-medium text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors mt-1 md:mt-0"
         >
           Live Demo ↗
         </a>
       </div>
 
       {/* Description */}
-      <p className="text-sm font-light leading-[1.7] text-muted max-w-[90%]">
+      <p className="text-sm font-light leading-[1.7] text-muted-foreground max-w-[90%]">
         {project.description}
       </p>
     </div>
@@ -156,15 +156,15 @@ export function ProjectsSection() {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-16 md:py-40 border-t border-line"
+      className="py-16 md:py-40 border-t border-border"
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16">
         {/* Header Section (Dipindah ke atas untuk memberi ruang maksimal pada grid) */}
         <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
-          <h2 className="section-header-reveal text-[clamp(2rem,5vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg">
+          <h2 className="section-header-reveal text-[clamp(2rem,5vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-foreground">
             Studi Kasus
           </h2>
-          <p className="section-header-reveal mt-8 text-sm font-light leading-[1.7] text-muted max-w-md">
+          <p className="section-header-reveal mt-8 text-sm font-light leading-[1.7] text-muted-foreground max-w-md">
             Beberapa proyek yang saya kerjakan, mulai dari ide, perancangan,
             hingga hasil akhir.
           </p>
