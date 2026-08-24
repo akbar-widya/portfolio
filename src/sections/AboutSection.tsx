@@ -24,7 +24,7 @@ export function AboutSection() {
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -41,14 +41,13 @@ export function AboutSection() {
             className="text-[clamp(1.5rem,4vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg"
             stagger={0.04}
           />
-          <div className="mt-6 w-16 h-[1px] bg-muted" />
         </div>
 
         <div className="lg:col-span-3 lg:border-l lg:border-line lg:pl-8">
           <p className="swiss-reveal text-base md:text-lg font-semibold leading-[1.5] text-fg">
             Saya percaya bahwa setiap baris kode adalah sebuah keputusan desain.
-            Teknologi, pada hakikatnya, bukan sekadar fungsionalitas, tetapi juga
-            estetika yang berbicara kepada penggunanya.
+            Teknologi, pada hakikatnya, bukan sekadar fungsionalitas, tetapi
+            juga estetika yang berbicara kepada penggunanya.
           </p>
         </div>
 
@@ -93,8 +92,8 @@ export function AboutSection() {
             >
               Google IT Automation with Python ↗
             </a>{" "}
-            menegaskan komitmen saya untuk terus berkembang di tengah lanskap yang selalu
-            berubah.
+            menegaskan komitmen saya untuk terus berkembang di tengah lanskap
+            yang selalu berubah.
           </p>
         </div>
       </div>

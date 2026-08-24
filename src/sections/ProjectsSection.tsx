@@ -6,9 +6,6 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  tech: string[];
-  year: string;
-  role: string;
   link: string;
   github?: string;
   image: string;
@@ -20,158 +17,111 @@ const PROJECTS: Project[] = [
     title: "ForgeFlow WMS",
     description:
       "Sistem manajemen gudang (WMS) skala enterprise untuk mengelola pergerakan stok presisi, alokasi pekerjaan, dan analitik data terpusat.",
-    tech: [
-      "React.js",
-      "Vite",
-      "Hono",
-      "Cloudflare D1",
-      "Better Auth",
-      "Recharts",
-    ],
-    year: "2026",
-    role: "Fullstack Developer",
     link: "https://forgeflow-web.pages.dev",
     image: "/projects/forgeflow.jpg",
   },
   {
     id: 2,
+    title: "HabitEngine",
+    description:
+      "Aplikasi pelacakan kebiasaan harian untuk memantau progres, menganalisis tren, dan menjaga streak dengan sistem autentikasi dan isolasi data yang aman.",
+    link: "https://track-habit.akbarwidya-dev.workers.dev",
+    image: "/projects/trackhabit.jpg",
+  },
+  {
+    id: 3,
     title: "TourVisto",
     description:
       "Platform otomasi perjalanan yang merancang itinerary secara cerdas melalui formulir dinamis dan integrasi AI. (Catatan: Matikan 3rd-party blocker jika gagal login).",
-    tech: ["React.js", "Supabase", "React Router v7", "ShadCn", "Google OAuth"],
-    year: "2025",
-    role: "Fullstack Developer",
     link: "https://tourvisto-dashboard.vercel.app/",
     image: "/projects/tourvisto.jpg",
   },
   {
-    id: 3,
+    id: 4,
     title: "Asyiah Craft",
     description:
       "Katalog digital UMKM kerajinan rajut dengan pemesanan via WhatsApp. Aktif digunakan sebagai website resmi operasional Asyiah Craft",
-    tech: ["React.js", "Tailwind CSS", "Vite"],
-    year: "2025",
-    role: "Frontend Developer",
     link: "https://asyiahcraft.vercel.app/",
     image: "/projects/asyiahcraft.jpg",
   },
   {
-    id: 4,
+    id: 5,
     title: "Visual Thinkboard",
     description:
       "Papan tugas visual yang mengubah kompleksitas manajemen proyek menjadi pengalaman intuitif dan estetis.",
-    tech: ["Vue.js", "Supabase", "Vue Router", "Tailwind", "Clerk"],
-    year: "2025",
-    role: "Frontend Developer",
     link: "https://visual-thinkboard.vercel.app/",
     image: "/projects/thinkboard.jpg",
   },
   {
-    id: 5,
+    id: 6,
     title: "Info Film",
     description:
       "Mesin pencarian film dengan rekomendasi infografis, menghubungkan penonton dengan cerita yang relevan.",
-    tech: ["React.js", "Tailwind", "React Router", "IMDB API"],
-    year: "2025",
-    role: "Frontend Developer",
     link: "https://movie-finder-akbarw.vercel.app/",
     image: "/projects/infofilm.jpg",
   },
 ];
 
-function ProjectRow({ project, index }: { project: Project; index: number }) {
-  const rowRef = useRef<HTMLDivElement>(null);
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!rowRef.current) return;
-      gsap.from(rowRef.current, {
+      if (!cardRef.current) return;
+      gsap.from(cardRef.current, {
         yPercent: 15,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: rowRef.current,
+          trigger: cardRef.current,
           start: "top 85%",
           once: true,
         },
-        delay: index * 0.08,
+        // Memberikan sedikit delay bergantian untuk efek grid
+        delay: (index % 2) * 0.1,
       });
     },
-    { scope: rowRef },
+    { scope: cardRef },
   );
 
   return (
-    <div ref={rowRef} className="border-t border-line">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 py-8 lg:py-12 items-start">
-        {/* Image */}
-        <div className="lg:col-span-4 lg:col-start-1">
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-line">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-          </a>
+    <div ref={cardRef} className="flex flex-col group">
+      {/* Image */}
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block mb-6"
+      >
+        <div className="aspect-[4/3] rounded-xl overflow-hidden bg-line">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
         </div>
+      </a>
 
-        {/* Name + Description */}
-        <div className="lg:col-span-3">
-          <h3 className="text-xl md:text-2xl font-bold leading-[0.9] tracking-[-0.03em] text-fg">
-            {project.title}
-          </h3>
-          <p className="mt-3 text-sm font-light leading-[1.7] text-muted">
-            {project.description}
-          </p>
-        </div>
-
-        {/* Tech */}
-        <div className="lg:col-span-2 lg:border-l lg:border-line lg:pl-4">
-          <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-3">
-            Teknologi
-          </span>
-          <div className="space-y-1">
-            {project.tech.map((t) => (
-              <p key={t} className="text-sm text-fg">
-                {t}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        {/* Metadata */}
-        <div className="lg:col-span-2 lg:border-l lg:border-line lg:pl-4">
-          <div className="space-y-5">
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                Tahun
-              </span>
-              <p className="text-sm text-fg">{project.year}</p>
-            </div>
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                Peran
-              </span>
-              <p className="text-sm text-fg">{project.role}</p>
-            </div>
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-muted block mb-1">
-                Link
-              </span>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-fg underline underline-offset-4 hover:text-muted transition-colors"
-              >
-                Live Demo ↗
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Name + Link */}
+      <div className="flex justify-between items-start gap-4 mb-3">
+        <h3 className="text-xl md:text-2xl font-bold leading-[0.9] tracking-[-0.03em] text-fg">
+          {project.title}
+        </h3>
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 text-sm font-medium text-fg underline underline-offset-4 hover:text-muted transition-colors mt-1 md:mt-0"
+        >
+          Live Demo ↗
+        </a>
       </div>
+
+      {/* Description */}
+      <p className="text-sm font-light leading-[1.7] text-muted max-w-[90%]">
+        {project.description}
+      </p>
     </div>
   );
 }
@@ -208,21 +158,22 @@ export function ProjectsSection() {
       ref={sectionRef}
       className="py-16 md:py-40 border-t border-line"
     >
-      <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-        <div className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
-          <h2 className="section-header-reveal text-[clamp(1.5rem,4vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg">
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
+        {/* Header Section (Dipindah ke atas untuk memberi ruang maksimal pada grid) */}
+        <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
+          <h2 className="section-header-reveal text-[clamp(2rem,5vw,5rem)] font-bold leading-[0.9] tracking-[-0.03em] text-fg">
             Studi Kasus
           </h2>
-          <div className="section-header-reveal mt-6 w-16 h-[1px] bg-muted" />
-          <p className="section-header-reveal mt-6 text-sm font-light leading-[1.7] text-muted max-w-[240px]">
+          <p className="section-header-reveal mt-8 text-sm font-light leading-[1.7] text-muted max-w-md">
             Beberapa proyek yang saya kerjakan, mulai dari ide, perancangan,
             hingga hasil akhir.
           </p>
         </div>
 
-        <div className="lg:col-span-9">
+        {/* 2-Column Grid untuk Projects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-16 lg:gap-x-12 lg:gap-y-24">
           {PROJECTS.map((project, index) => (
-            <ProjectRow key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </div>
