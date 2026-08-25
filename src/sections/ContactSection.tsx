@@ -99,7 +99,7 @@ export function ContactSection() {
             {/* Tombol CV menyatu dengan rapi di bawah daftar kontak */}
             <div className="swiss-reveal">
               <a
-                href="/cv-akbar.pdf"
+                href="/resume-akbar-widya.pdf"
                 download
                 className="inline-flex items-center gap-3 text-sm md:text-base font-medium text-primary-foreground bg-primary px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 hover:brightness-105"
               >
